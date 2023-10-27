@@ -5,3 +5,4 @@ test/srcDir/*
 test/targetDir/*
 dist/*
 npm-debug.log
+.yarn
