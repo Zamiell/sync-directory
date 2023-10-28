@@ -5,7 +5,7 @@ const isAbsoluteUrl = require('is-absolute');
 const path = require('path');
 const fs = require('fs');
 
-const formatParams = (srcDir, targetDir, customOptions = {}) => {
+const formatParams = (srcDir: string, targetDir: string, customOptions: Record<string, unknown> = {}) => {
     // format srcDir and targetDir to absolute path
     if (!srcDir) {
         throw new Error(`[sync-directory] source path is missing`);
@@ -38,6 +38,7 @@ const formatParams = (srcDir, targetDir, customOptions = {}) => {
         exclude: null,
         forceSync: null,
         nodeep: false,
+        afterSync: () => {},
         afterEachSync: () => {},
         onError: (err) => {
             const e = new Error(err.message);
